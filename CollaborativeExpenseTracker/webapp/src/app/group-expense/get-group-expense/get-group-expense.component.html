@@ -1,0 +1,89 @@
+<div class="mat-display-1">View Group Details!</div>
+<div *ngIf="groupExpenseList?.length > 0">
+  <h2>Group EXPENSES</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Source Group</th>
+        <th>Created by</th>
+        <th>Paid By</th>
+        <th>Division Percent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let expense of groupExpenseList; index as index">
+        <td class="hidden">{{ expense?.id }}</td>
+        <td>
+          <input type="text" [(ngModel)]="expense.name" readonly />
+        </td>
+        <td>
+          <input
+            type="text"
+            [(ngModel)]="expense.name"
+            [disabled]="!expense.isEditable"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            [(ngModel)]="expense.amount"
+            [disabled]="!expense.isEditable"
+          />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="expense.sourceGroup" [disabled] />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="expense.createdBy" [disabled] />
+        </td>
+        <td>
+          <input
+            type="text"
+            [(ngModel)]="expense.paidBy"
+            [disabled]="!expense.isEditable"
+          />
+        </td>
+        <!-- <td><input type="text" [(ngModel)]="expense.dividePercentage" readonly /></td> -->
+        <td *ngFor="let item of mems">
+          <input matInput value="{{ item[0].email }}" name="member" disabled />
+          <input
+            matInput
+            type="number"
+            placeholder="ratio"
+            name="ratio"
+            [(ngModel)]="item[1]"
+            [disabled]="!expense.isEditable"
+            step="1"
+            min="0"
+            max="99"
+            required
+          />
+        </td>
+        <td>
+          <button (click)="deleteExpense(expense)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          &nbsp;
+          <button
+            (click)="expense.isEditable = !expense.isEditable"
+            *ngIf="!expense.isEditable"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            *ngIf="expense.isEditable"
+            (click)="updateRowData(expense)"
+            (click)="expense.isEditable = !expense.isEditable"
+          >
+            <mat-icon>save</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="mat-raised-button" (click)="close()">Close</button>

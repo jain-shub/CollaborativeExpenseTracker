@@ -1,0 +1,53 @@
+img {
+  height: 3em;
+  position: relative;
+  left: 38%;
+  top: 1em;
+  cursor: pointer;
+}
+
+button {
+  position: relative;
+}
+
+.mat-display-1 {
+  color: grey;
+  position: relative;
+  display: inline;
+  left: 39%;
+}
+
+.mat-body {
+  color: grey;
+  text-align: center;
+  margin: 1em;
+}
+
+fieldset {
+  position: relative;
+  top: 1.25em;
+  left: 35%;
+  width: fit-content;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  form {
+    margin-bottom: 1em;
+    margin-left: 3em;
+    .signup-fields {
+      position: relative;
+      width: 25em;
+      height: 80%;
+      mat-icon {
+        display: inline;
+        position: relative;
+        top: -1.5em;
+        left: 17em;
+        font-size: 100%;
+        cursor: pointer;
+      }
+      mat-form-field {
+        width: 20em;
+      }
+    }
+  }
+}

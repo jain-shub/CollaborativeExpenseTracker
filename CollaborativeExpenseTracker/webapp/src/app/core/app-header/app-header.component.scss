@@ -1,0 +1,25 @@
+nav{
+  background-color: saturate($color: #A9CCE3, $amount: 0);
+  height: 4em;
+  img{
+    height: 2.5em;
+    position: relative;
+    margin: 0.75em 0em 0em 15em;
+  }
+  .mat-headline{
+    color: #fff;
+    display: inline;
+    position: relative;
+    top: -0.25em;
+    left: 1em;
+  }
+  button{
+    position: relative;
+    left: 50em;
+    top: -0.75em;
+    margin-right: 2em;
+  }
+  a{
+    text-decoration: none;
+  }
+}

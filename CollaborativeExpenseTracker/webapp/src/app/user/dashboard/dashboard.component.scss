@@ -1,0 +1,75 @@
+img {
+  height: 2.5em;
+  position: relative;
+  margin: 0.75em 2.5em 0.75em 2.5em;
+}
+
+nav {
+  background-color: saturate($color: #a9cce3, $amount: 0);
+  height: 4em;
+  img {
+    height: 2.5em;
+    position: relative;
+    margin: 0.75em 0em 0em 15em;
+  }
+  .mat-headline {
+    color: #fff;
+    display: inline;
+    position: relative;
+    top: -0.25em;
+    left: 1em;
+  }
+  button {
+    position: relative;
+    left: 50em;
+    top: -0.75em;
+    margin-right: 2em;
+  }
+  a {
+    text-decoration: none;
+  }
+  .profileMenu {
+    position: relative;
+    left: 45em;
+    display: inline;
+  }
+  mat-label {
+    position: relative;
+    left: 0.5em;
+    top: -0.75em;
+    color: white;
+    cursor: pointer;
+  }
+
+  mat-menu {
+    cursor: pointer;
+  }
+}
+
+.mat-display-1 {
+  color: grey;
+}
+
+.mainContent {
+  position: relative;
+  // left: 30em;
+  .toolBar {
+    position: relative;
+    left: 20%;
+    top: -32%;
+  }
+  .expenseView{
+    position: relative;
+    top: 40%;
+    left:-25%;
+  }
+}
+
+.dbsn{
+  height: 60em;
+  width: 100%;
+}
+
+.example-stretched-tabs {
+  max-width: 800px;
+}

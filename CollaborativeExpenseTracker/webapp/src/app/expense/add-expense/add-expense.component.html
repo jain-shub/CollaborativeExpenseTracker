@@ -1,0 +1,182 @@
+<mat-dialog-content class="md-dialog-container">
+  <fieldset>
+    <div class="mat-display-1">Add Expense</div>
+    <form #addExpenseForm="ngForm" (ngSubmit)="(addExpenseForm.valid)" [formGroup]="myForm">
+      <div class="expense-fields">
+        <app-alert></app-alert>
+        <mat-label>To Email</mat-label>
+        <p>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              [errorStateMatcher]="utility.emailMatcher"
+              [formControl]="utility.emailFormControl"
+              name="toUserName"
+              class="form-control"
+              formControlName="email"
+              [(ngModel)]="expense.toUserName"
+              required
+            />
+            <mat-hint>example@domain.com</mat-hint>
+            <mat-error
+              *ngIf="
+                utility.emailFormControl.hasError('email') &&
+                !utility.emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="utility.emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+      <div class="expense-fields">
+        <mat-label>Expense Name</mat-label>
+        <p>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              [errorStateMatcher]="utility.expenseCatergoryMatcher"
+              [formControl]="utility.expenseCatergoryFormControl"
+              name="expenseName"
+              class="form-control"
+              formControlName="expensename"
+              [(ngModel)]="expense.name"
+              required
+            />
+            <mat-hint>(Groceries, Trip, Dinner)</mat-hint>
+            <mat-error
+              *ngIf="
+                utility.emailFormControl.hasError('category') &&
+                !utility.emailFormControl.hasError('required')
+              "
+            >
+              Please enter a valid Expense Name
+            </mat-error>
+            <mat-error
+              *ngIf="utility.expenseCatergoryFormControl.hasError('required')"
+            >
+              Expense Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+      <div class="expense-fields">
+        <mat-label>Amount</mat-label>
+        <p>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              [errorStateMatcher]="utility.amountMatcher"
+              [formControl]="utility.amountFormControl"
+              name="Amount"
+              class="form-control"
+              formControlName="amount"
+              [(ngModel)]="expense.amount"
+              type="number"
+              required
+            />
+            <mat-hint>can only contain numbers(Currency $)</mat-hint>
+            <mat-error
+              *ngIf="
+                utility.amountFormControl.hasError('category') &&
+                !utility.amountFormControl.hasError('required')
+              "
+            >
+              Please enter a valid Amount
+            </mat-error>
+            <mat-error
+              *ngIf="utility.expenseCatergoryFormControl.hasError('required')"
+            >
+              Amount is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+      <div class="expense-fields">
+        <mat-label>Expense Type</mat-label>
+        <mat-form-field>
+          <div>
+          <mat-select [(ngModel)]="type" name="expenseType" (ngModelChange)='onExpenseTypeChange($event)' class="form-control"
+          formControlName="exptype">
+            <mat-option *ngFor="let exp of expenseType" [value]="exp">{{ exp }}</mat-option>
+          </mat-select>
+        </div>
+        </mat-form-field>
+      </div>
+      <div *ngIf="type === 'CUSTOM'">
+      <div class="expense-fields">
+        <mat-label>to User Split Percentage Value</mat-label>
+        <p>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              [errorStateMatcher]="utility.toSplitPercentMatcher"
+              [formControl]="utility.toSplitPercentFormControl"
+              name="toUserSplitPercentageValue"
+              class="form-control"
+              formControlName="toPerc"
+              [(ngModel)]="expense.toUserSplitPercentageValue"
+              type="number"
+              required
+            />
+            <mat-hint>can only contain numbers(%)</mat-hint>
+            <mat-error
+              *ngIf="
+                utility.toSplitPercentFormControl.hasError('category') &&
+                !utility.toSplitPercentFormControl.hasError('required')
+              "
+            >
+              Please enter a valid Amount
+            </mat-error>
+            <mat-error
+              *ngIf="utility.toSplitPercentFormControl.hasError('required')"
+            >
+              Percent is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+      <div class="expense-fields">
+        <mat-label>from User Split Percentage Value</mat-label>
+        <p>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              [errorStateMatcher]="utility.fromSplitPercentMatcher"
+              [formControl]="utility.fromSplitPercentFormControl"
+              name="fromSplitPercentMatcher"
+              class="form-control"
+              formControlName="fromPerc"
+              [(ngModel)]="expense.fromUserSplitPercentageValue"
+              type="number"
+              required
+            />
+            <mat-hint>can only contain numbers(%)</mat-hint>
+            <mat-error
+              *ngIf="
+                utility.fromSplitPercentFormControl.hasError('category') &&
+                !utility.fromSplitPercentFormControl.hasError('required')
+              "
+            >
+              Please enter a valid Amount
+            </mat-error>
+            <mat-error
+              *ngIf="utility.fromSplitPercentFormControl.hasError('required')"
+            >
+              Percent is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+    </div>
+    </form>
+  </fieldset>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="addExpense()" [disabled]="!addExpenseForm.valid"
+  [disabled]="myForm.invalid">
+    Add Expense
+  </button>
+</mat-dialog-actions>

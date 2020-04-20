@@ -1,0 +1,104 @@
+.tag1{
+  margin: 5em;
+  font-weight: 100;
+}
+
+.symbol{
+  transform: scale(8);
+  position: relative;
+  top: -1.5em;
+  left: -2em;
+}
+
+div{
+  display: block;
+}
+
+.tag2 {
+  position: relative;
+  margin-top: 2em;
+  font-size: large;
+  color: darkgrey;
+}
+
+.app-features{
+  // font-family: cursive;
+  position: relative;
+  top: 5em;
+}
+
+mat-icon {
+  font-size: 3em;
+  margin-right: 1.5em;
+  cursor: pointer;
+}
+
+mat-grid-list{
+  margin-left: 6em;
+  margin-right: 6em;
+}
+
+.mat-display-2{
+  font-weight: bolder;
+  color: darkslategray;
+  width: 90%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.headShow{
+  background: url(../../assets/backgroundImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5em;
+}
+
+app-app-footer{
+  position: relative;
+  top: 15em;
+}
+
+.cardContainer{
+  border: solid grey;
+  border-radius: 10px;
+  box-shadow: 2px 2px lightslategray;
+  mat-icon{
+    position: relative;
+    left: 40%;
+  }
+  mat-card-title{
+    position: relative;
+    text-align: center;
+  }
+}
+
+.testimonials{
+position: relative;
+top: 10em;
+mat-card{
+  position: relative;
+  mat-card-header{
+    position: relative;
+    top:1em;
+    left: 1em;
+  }
+  .pic{
+    position: relative;
+    top:1em;
+    left: 25%;
+    width: 16em;
+    height: 19em;
+  }
+  .example-header-image{
+    position: relative;
+    border-radius: 50%;
+    width: 3em;
+    background-size: cover;
+  }
+  .testimonyStatement{
+    text-justify: newspaper;
+  }
+}
+
+}
+
+

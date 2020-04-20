@@ -1,0 +1,59 @@
+<mat-dialog-content [formGroup]="form">
+  <fieldset>
+    <div class="mat-display-1">Enter Group Details!</div>
+    <mat-label>Group Name</mat-label>
+    <p>
+      <mat-form-field appearance="outline">
+        <!-- formControlName = "name" -->
+        <input
+          matInput
+          [errorStateMatcher]="utility.firstNameMatcher"
+          [formControl]="utility.firstNameFormControl"
+          [(ngModel)]="group.name"
+          placeholder="Group Name"
+          matTooltip="Enter name based on what type of group you want to make!"
+          matTooltipPosition="after"
+        />
+        <mat-hint>example</mat-hint>
+        <mat-error
+          *ngIf="
+            utility.firstNameFormControl.hasError('firstName') &&
+            !utility.firstNameFormControl.hasError('required')
+          "
+        >
+          Please enter a valid group Name
+        </mat-error>
+        <mat-error *ngIf="utility.firstNameFormControl.hasError('required')">
+          Group Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <div formArrayName="memberEmail">
+      <mat-label>Member's Email</mat-label>
+      <div
+        *ngFor="let item of memberEmail.controls; let pointIndex = index"
+        [formGroupName]="pointIndex"
+      >
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="Member's Email"
+            formControlName="email"
+          />
+        </mat-form-field>
+      </div>
+      <button mat-icon-button (click)="addMember()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </fieldset>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">
+    Close
+  </button>
+  <button mat-raised-button color="primary" (click)="onSubmit()">
+    Add Group!
+  </button>
+</mat-dialog-actions>

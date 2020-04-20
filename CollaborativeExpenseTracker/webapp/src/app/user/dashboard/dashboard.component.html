@@ -1,0 +1,19 @@
+<nav>
+  <a routerLink="/userPages/dashboard">
+    <img src="../../assets/ExpenseDistLogo.jpg" />
+    <div class="mat-headline" routerLink="/userPages/dashboard">GoDutch</div></a
+  >
+  <div class="profileMenu">
+    <img src="../../assets/ExpenseDistLogo.jpg" [mat-menu-trigger-for]="profileView" />
+    <mat-label>{{ user.firstName }} {{ user.lastName }}</mat-label>
+  </div>
+</nav>
+<div class="dbsn">
+  <app-dashboard-sidenav></app-dashboard-sidenav>
+</div>
+
+<mat-menu #profileView="matMenu">
+  <img src="../../assets/ExpenseDistLogo.jpg" mat-menu-item />
+  <button mat-menu-item (click)="updateUserAccount()">Account Settings</button>
+  <button mat-menu-item (click)="logout()">Sign out</button>
+</mat-menu>

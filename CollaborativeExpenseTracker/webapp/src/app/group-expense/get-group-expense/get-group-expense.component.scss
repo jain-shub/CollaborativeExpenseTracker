@@ -1,0 +1,44 @@
+div {
+  position: relative;
+  top: 15%;
+  left: 15%;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border-collapse: collapse;
+  // width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: orangered;
+  color: white;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}

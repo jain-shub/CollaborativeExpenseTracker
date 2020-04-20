@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <!-- class="sidenav" fixedInViewport
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'" -->
+  <div class="navComp">
+    <mat-toolbar><mat-icon>dashboard</mat-icon>Dashboard</mat-toolbar>
+    <mat-nav-list>
+      <!-- <mat-divider mat-list-item></mat-divider> -->
+      <div mat-list-item>
+        <div class="list-head">
+          <mat-label><b>GROUPS</b></mat-label>
+          <button mat-button (click)="onCreate()">
+            <mat-icon>group_add</mat-icon>Add
+          </button>
+        </div>
+        <app-get-all-group></app-get-all-group>
+      </div>
+    </mat-nav-list>
+  </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- <mat-icon (click)="sidenav.toggle()">swap_horizontal_circle</mat-icon> -->
+    <mat-toolbar>
+      <div class="dashboardButtons">
+        <button mat-raised-button color="warn" (click)="onAddExpense()">
+          Add a bill
+        </button>
+        <!-- routerLink="/userPages/addexpense" -->
+        <button mat-raised-button color="primary">Settle up</button>
+        <button mat-raised-button color="link" (click)="onBanking()">
+          Banking
+        </button>
+      </div>
+    </mat-toolbar>
+    <app-get-expense></app-get-expense>
+  </mat-sidenav-content>
+</mat-sidenav-container>

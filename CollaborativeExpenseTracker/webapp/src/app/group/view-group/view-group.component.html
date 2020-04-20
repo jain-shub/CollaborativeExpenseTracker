@@ -1,0 +1,89 @@
+<fieldset>
+  <div class="mat-display-1">View Group Details!</div>
+  <mat-dialog-content [formGroup]="form">
+    <mat-label>Group Name</mat-label>
+    <p>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          [(ngModel)]="name"
+          placeholder="Group Name"
+          formControlName="name"
+        />
+      </mat-form-field>
+      <button
+        (click)="group.isEditable = !group.isEditable"
+        *ngIf="!group.isEditable"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </p>
+
+    <!-- <mat-label>Group Id</mat-label>
+      <p>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            [(ngModel)]="id"
+            readonly
+            placeholder="Group Id"
+            formControlName = "id"
+            disabled
+          />
+        </mat-form-field>
+      </p> -->
+
+    <mat-label>Group Type</mat-label>
+    <p>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          [(ngModel)]="groupType"
+          placeholder="Group Type"
+          formControlName="groupType"
+        />
+      </mat-form-field>
+      <button
+        (click)="group.isEditable = !group.isEditable"
+        *ngIf="!group.isEditable"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </p>
+
+    <mat-label>Created By</mat-label>
+    <p>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          [(ngModel)]="createdBy"
+          readonly
+          placeholder="Created By"
+          formControlName="createdByName"
+          disabled
+        />
+      </mat-form-field>
+    </p>
+    <mat-label>Member's Email</mat-label>
+    <div *ngFor="let item of memberEmail; let pointIndex = index">
+      <mat-form-field appearance="outline">
+        <input matInput value="{{ item }}" disabled />
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button" *ngIf="group.isEditable"
+    (click)="updateGroup(group)">
+    <!-- (click)="group.isEditable = !group.isEditable" -->
+      Update Group Details
+    </button>
+    <button mat-raised-button color="primary" (click)="save()">
+      Add Expense!
+    </button>
+    <button mat-raised-button color="accent" (click)="viewGroupExpenses()">
+      View Group Expenses!
+    </button>
+  </mat-dialog-actions>
+</fieldset>
